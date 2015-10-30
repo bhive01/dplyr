@@ -71,6 +71,7 @@ select_vars_ <- function(vars, args, include = character(), exclude = character(
     matches = function(...) matches(vars, ...),
     num_range = function(...) num_range(vars, ...),
     one_of = function(...) one_of(vars, ...),
+    type_of = function(...) typeof(vars, ...),
     everything = function(...) everything(vars, ...)
   )
 
