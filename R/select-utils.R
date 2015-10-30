@@ -49,6 +49,16 @@ one_of <- function(vars, ...) {
   match(keep, vars)
 }
 
+type_of <- function(vars, match, ignore.case = TRUE) {
+  if (ignore.case) match <- tolower(match) 
+  if (match == "numeric") {match <- c("integer", "double", "complex")} 
+  possibletypes <- c("logical", "integer", "double", "complex", "character", "raw", "list", "NULL", "closure")
+ 
+  stopifnot(is.string(match), !is.na(match), nchar(match) > 0, !match %in% possibletypes)
+  
+  which(sapply(., typeof) == match))  
+} 
+
 everything <- function(vars) {
   seq_along(vars)
 }
